@@ -1,41 +1,24 @@
 const express = require('express');
+const expressLayouts = require('express-ejs-layouts');
+
 const app = express();
 const port = 3000;
 
+app.set('view engine', 'ejs');
+app.set('layout', 'layouts/main');
+
+app.use(expressLayouts);
+
 app.get('/', (req, res) => {
-    const options = {
-        root: __dirname,
-        headers: {
-            'Content-Type': 'text/html'
-        }
-    };
-    
-    var fileName = './pages/index.html';
-    res.sendFile(fileName, options, function (err) {
-        if (err) {
-            next(err);
-        } else {
-            console.log('Sent:', fileName);
-        }
-    });
+    res.render('index', {
+        title: 'Home'
+    })
 });
 
 app.get('/about', (req, res) => {
-    const options = {
-        root: __dirname,
-        headers: {
-            'Content-Type': 'text/html'
-        }
-    };
-    
-    var fileName = './pages/about.html';
-    res.sendFile(fileName, options, function (err) {
-        if (err) {
-            next(err);
-        } else {
-            console.log('Sent:', fileName);
-        }
-    });
+    res.render('about', {
+        title: 'About This Page'
+    })
 });
 
 app.listen(port, () => {
