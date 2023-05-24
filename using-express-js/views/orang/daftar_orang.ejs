@@ -1,0 +1,47 @@
+<article>
+	<header class="mb-4">
+		<h1>Daftar Orang</h1>
+		<p>
+			Berikut di bawah merupakan daftar dan informasi mengenai orang.
+		</p>
+	</header>
+
+	<div class="content">
+		<a href='/daftar-orang/add' class="btn btn-sm btn-primary mb-3">Tambah data orang</a>
+
+		<% if (msg.length !== 0) { %>
+			<div class="alert alert-success" role="alert">
+				<%= msg %>
+			</div>
+		<% } %>
+		
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Nama</th>
+					<th scope="col">Deskripsi</th>
+					<th class="text-center" scope="col">Aksi</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% if (data.length > 0) { %>
+					<% data.forEach( (el, i) => { %>
+						<tr>
+							<th scope="row"><%= ++i %></th>
+							<td><%= el.nama %></td>
+							<td><%= el.deskripsi %></td>
+							<td class="text-center">
+								<a href="" class="btn btn-sm btn-danger">Hapus</a>
+							</td>
+						</tr>
+					<% }); %>
+				<% } else { %>
+					<tr>
+						<td class="text-center" colspan="4">Tidak ada data</td>
+					</tr>
+				<% } %>
+			</tbody>
+		</table>
+	</div>
+</article>
