@@ -6,7 +6,7 @@ const db = require('./app/models');
 db.sequelize.sync();
 
 const app = express();
-const port = 3000;
+const port = 8000;
 
 app.use(cors());
 app.use(bodyParser.json());
