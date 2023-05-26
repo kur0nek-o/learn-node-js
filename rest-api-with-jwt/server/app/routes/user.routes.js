@@ -10,5 +10,6 @@ module.exports = (app) => {
         next();
     });
 
-    app.get('/example', [verifyToken], controller.example);
+    app.get('/', [verifyToken], controller.getAll);
+    app.get('/:id', [verifyToken], controller.find);
 }
