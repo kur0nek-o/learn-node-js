@@ -6,8 +6,7 @@ exports.getAll = async (req, res) => {
 
     res.status(200).json({
         status: true,
-        message: 'you won!',
-        games
+        data: games
     })
 }
 
@@ -21,6 +20,6 @@ exports.find = async (req, res) => {
 
     res.status(200).json({
         status: true,
-        game
+        data: game
     })
 }
