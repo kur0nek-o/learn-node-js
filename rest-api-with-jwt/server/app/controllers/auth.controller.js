@@ -4,7 +4,6 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
 const User = db.user;
-// const Op = db.Sequelize.Op;
 
 module.exports.signin = (req, res) => {
     User.findOne({
